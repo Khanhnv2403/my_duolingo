@@ -34,22 +34,13 @@ const Header = (props: Props) => {
           <SignedOut>
             <SignInButton
               mode="modal"
-              fallbackRedirectUrl="/dashboard"
+              fallbackRedirectUrl="/"
               signUpFallbackRedirectUrl="/onboarding"
             >
               <Button size="lg" variant="ghost">
-                Sign In
+                Log In
               </Button>
             </SignInButton>
-            <SignUpButton
-              mode="modal"
-              fallbackRedirectUrl="/onboarding"
-              signInFallbackRedirectUrl="/"
-            >
-              <Button size="lg" variant="super">
-                Sign Up
-              </Button>
-            </SignUpButton>
           </SignedOut>
         </ClerkLoaded>
       </div>
