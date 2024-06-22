@@ -3,6 +3,7 @@ import db from "./drizzle";
 import { auth } from "@clerk/nextjs/server";
 import { eq } from "drizzle-orm";
 import { courses, userProgress } from "./schema";
+import * as schema from "../db/schema";
 
 export const getUserProgress = cache(async () => {
   const { userId } = await auth();

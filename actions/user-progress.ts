@@ -36,7 +36,7 @@ export const upsertUserProgress = async (courseId: number) => {
       userImageSrc: user.imageUrl || "/icons/user.svg",
     });
 
-    revalidatePath("/course");
+    revalidatePath("/courses");
     revalidatePath("/learn");
     redirect("/learn");
   }
@@ -48,7 +48,7 @@ export const upsertUserProgress = async (courseId: number) => {
     userImageSrc: user.imageUrl || "/icons/user.svg",
   });
 
-  revalidatePath("/course");
+  revalidatePath("/courses");
   revalidatePath("/learn");
   redirect("/learn");
 };
