@@ -124,7 +124,7 @@ const main = async () => {
         challengeId: 1,
         imageSrc: "/robot.png",
         correct: false,
-        text: "la robot",
+        text: "el robot",
         audioSrc: "/es_robot.mp3",
       },
     ]);

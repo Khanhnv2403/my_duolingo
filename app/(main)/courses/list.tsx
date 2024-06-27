@@ -3,7 +3,7 @@
 import { toast } from "sonner";
 import { courses, userProgress } from "@/db/schema";
 import Card from "./card";
-import styles from "./styles.module.css";
+import styles from "@/app/styles.module.css";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 import { upsertUserProgress } from "@/actions/user-progress";

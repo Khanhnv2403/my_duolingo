@@ -2,6 +2,7 @@ import { challengeOptions, challenges } from "@/db/schema";
 import { cn } from "@/lib/utils";
 import React from "react";
 import Card from "./card";
+import style from "@/app/styles.module.css";
 
 type Props = {
   options: (typeof challengeOptions.$inferSelect)[];
@@ -25,8 +26,7 @@ const Challenge = ({
       className={cn(
         "grid gap-2",
         type === "ASSIST" && "grid-cols-1",
-        type === "SELECT" &&
-          "grid-cols-2 lg:grid-cols-[repeat(auto-fit, minmax(0, 1fr))]"
+        type === "SELECT" && `grid-cols-2 ${style["custom-grid"]}`
       )}
     >
       {options.map((option, i) => (
@@ -36,7 +36,7 @@ const Challenge = ({
           text={option.text}
           imageSrc={option.imageSrc}
           shortcut={`${i + 1}`}
-          selected={true || selectedOption === option.id}
+          selected={selectedOption === option.id}
           onClick={() => onSelect(option.id)}
           status={status}
           audioSrc={option.audioSrc}

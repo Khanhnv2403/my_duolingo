@@ -81,3 +81,9 @@ body,
     @apply bg-background text-foreground;
   }
 }
+
+@media (min-width: 1024px) {
+  .custom-grid {
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  }
+}
