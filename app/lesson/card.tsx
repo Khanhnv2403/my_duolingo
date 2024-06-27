@@ -61,13 +61,13 @@ const Card = ({
     >
       {audio}
       {imageSrc && (
-        <div className="relative aspect-square max-h-[70px] lg:max-h-[130px] mx-auto">
+        <div className="relative aspect-square max-h-[70px] lg:max-h-[130px] mx-auto mb-4">
           <Image src={imageSrc} alt={text} fill />
         </div>
       )}
       <div
         className={cn(
-          "flex items-center justify-between mt-4",
+          "flex items-center justify-between",
           type === "ASSIST" && "flex-row-reverse"
         )}
       >
