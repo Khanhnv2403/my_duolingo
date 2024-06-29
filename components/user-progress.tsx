@@ -31,7 +31,7 @@ const UserProgress = ({
           />
         </Button>
       </Link>
-      <Link href="/shop">
+      <Link href="/store">
         <Button variant="ghost" className="text-orange-500">
           <Image
             src="icons/points.svg"
@@ -43,7 +43,7 @@ const UserProgress = ({
           {points}
         </Button>
       </Link>
-      <Link href="/shop">
+      <Link href="/store">
         <Button variant="ghost" className="text-rose-500">
           <Image
             src="icons/heart.svg"
