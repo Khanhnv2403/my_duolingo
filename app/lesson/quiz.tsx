@@ -1,7 +1,7 @@
 "use client";
 
 import { toast } from "sonner";
-import { useAudio, useWindowSize } from "react-use";
+import { useAudio, useMount, useWindowSize } from "react-use";
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
@@ -10,6 +10,8 @@ import Confetti from "react-confetti";
 import { challengeOptions, challenges } from "@/db/schema";
 import { upsertChallengeProgress } from "@/actions/challenge-progress";
 import { reduceHearts } from "@/actions/user-progress";
+import { useHeartsModal } from "@/store/use-hearts-modal";
+import { usePracticeModal } from "@/store/use-practice-modal";
 
 import Header from "./header";
 import QuestionBubble from "./lesson-bubble";
@@ -35,6 +37,15 @@ const Quiz = ({
   initalLessonChallenges,
   userSubcription,
 }: Props) => {
+  const { open: openHeartsModal } = useHeartsModal();
+  const { open: openPracticeModal } = usePracticeModal();
+
+  useMount(() => {
+    if (initalPercentage === 100) {
+      openPracticeModal();
+    }
+  });
+
   const { width, height } = useWindowSize();
   const router = useRouter();
 
@@ -48,7 +59,9 @@ const Quiz = ({
 
   const [lessonId] = useState(initalLessonId);
   const [hearts, setHearts] = useState(initalHearts);
-  const [percentage, setPercentage] = useState(initalPercentage);
+  const [percentage, setPercentage] = useState(() => {
+    return initalPercentage === 100 ? 0 : initalPercentage;
+  });
   const [challenges] = useState(initalLessonChallenges);
 
   const [activeIndex, setActiveIndex] = useState(() => {
@@ -101,7 +114,7 @@ const Quiz = ({
         upsertChallengeProgress(challenge.id)
           .then((response) => {
             if (response?.error === "hearts") {
-              console.error("Missing hearts");
+              openHeartsModal();
               return;
             }
 
@@ -119,7 +132,7 @@ const Quiz = ({
         reduceHearts(challenge.id)
           .then((response) => {
             if (response?.error === "hearts") {
-              console.error("Missing hearts");
+              openHeartsModal();
               return;
             }
 
