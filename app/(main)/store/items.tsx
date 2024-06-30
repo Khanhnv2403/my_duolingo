@@ -5,8 +5,7 @@ import { toast } from "sonner";
 import Image from "next/image";
 import React, { useTransition } from "react";
 import { createStripeUrl } from "@/actions/user-subscription";
-
-const POINTS_TO_REFILL = 10;
+import { POINTS_TO_REFILL } from "@/constants";
 
 type Props = {
   hearts: number;

@@ -45,9 +45,9 @@ const Sidebar = ({ className }: Props) => {
           iconSrc="/icons/practice.svg"
         />
         <SidebarItem
-          label="rankings"
-          href="/rankings"
-          iconSrc="/icons/rankings.svg"
+          label="leaderboard"
+          href="/leaderboard"
+          iconSrc="/icons/leaderboard.svg"
         />
         <SidebarItem
           label="missions"
