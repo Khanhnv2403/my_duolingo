@@ -35,16 +35,6 @@ const Sidebar = ({ className }: Props) => {
       <div className="flex flex-col gap-y-2 flex-1">
         <SidebarItem label="Learn" href="/learn" iconSrc="/icons/home.svg" />
         <SidebarItem
-          label="Pronounce"
-          href="/pronounce"
-          iconSrc="/icons/pronounce.svg"
-        />
-        <SidebarItem
-          label="practice"
-          href="/practice"
-          iconSrc="/icons/practice.svg"
-        />
-        <SidebarItem
           label="leaderboard"
           href="/leaderboard"
           iconSrc="/icons/leaderboard.svg"
